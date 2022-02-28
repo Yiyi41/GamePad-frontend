@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #eb565b solid 2px;
+  padding: 10px;
+}
+
+.logo {
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.gamepad_img {
+  height: 40px;
+}
