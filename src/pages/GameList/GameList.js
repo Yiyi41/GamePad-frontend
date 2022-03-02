@@ -2,6 +2,7 @@ import "./GameList.css";
 import logo from "../../assets/img/logo.png";
 import Gamepad from "../../assets/img/Gamepad.png";
 
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import axios from "axios";
@@ -12,12 +13,14 @@ const GameList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [genres, setGenres] = useState("");
+  const [platforms, setPlatforms] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/?page=${page}&search=${search}`
+          `http://localhost:3000/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
         );
 
         setData(response.data);
@@ -27,19 +30,19 @@ const GameList = () => {
       }
     };
     fetchData();
-  }, [page, search]);
+  }, [page, search, genres, platforms]);
   return isLoading ? (
     <div>is loading</div>
   ) : (
     <div>
       <div className="searchContainer">
         <div className="search_container_img">
-          <img src={logo} alt="" />
-          <img src={Gamepad} alt="" />
+          <img src={logo} alt="" className="img1" />
+          <img src={Gamepad} alt="" className="img2" />
         </div>
 
         <input
-          className="search_Btn"
+          className="search_input"
           type="text"
           placeholder="Search for a game"
           value={search}
@@ -48,18 +51,22 @@ const GameList = () => {
           }}
         />
       </div>
+
       <div className="listContainer">
         {data.results.map((game, index) => {
           return (
-            <div key={game.id} className="gameCard">
-              {game.background_image ? (
-                <img src={game.background_image} alt="" />
-              ) : null}
-              <div className="gameName">{game.name}</div>
-            </div>
+            <Link to={`/gamedetails/${game.id}`} key={game.id}>
+              <div className="gameCard">
+                {game.background_image ? (
+                  <img src={game.background_image} alt="" />
+                ) : null}
+                <div className="gameName">{game.name}</div>
+              </div>
+            </Link>
           );
         })}
       </div>
+
       <div className="btn_pagination">
         <button
           onClick={() => {

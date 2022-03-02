@@ -1,0 +1,47 @@
+.content {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.platform_name,
+.genre {
+  color: green;
+}
+
+.plaform_name_container {
+  /* display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  width: 900px; */
+  margin-bottom: 20px;
+  color: green;
+}
+
+.imgContainer img {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.imgContainer {
+  margin: 20px auto;
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.textContainer {
+  text-align: center;
+}
+
+.textContainer p {
+  color: white;
+}
+
+.title {
+  font-size: 30px;
+}
