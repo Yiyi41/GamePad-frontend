@@ -7,8 +7,12 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-library.add(faAngleLeft, faAngleRight);
+import {
+  faAngleLeft,
+  faAngleRight,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faAngleLeft, faAngleRight, faAngleDown);
 
 function App() {
   return (

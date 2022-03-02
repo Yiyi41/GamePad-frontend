@@ -1,9 +1,4 @@
-.listContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+/* SEARCH CONTAINER  */
 .searchContainer {
   display: flex;
   flex-direction: column;
@@ -30,6 +25,34 @@
   height: 80px;
 }
 
+/* COMBO CONTAINER */
+.combo-container {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.combo-container div {
+  display: flex;
+  flex-direction: row;
+}
+.combo-container p {
+  color: white;
+}
+
+.combobox {
+  width: 100px;
+}
+
+/* LIST CONTAINER >> GAME CARD */
+
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .gameCard {
   width: 250px;
   display: flex;
@@ -49,6 +72,7 @@
   color: white;
 }
 
+/* PAGINATION */
 .btn_pagination {
   padding: 20px;
   width: 300px;

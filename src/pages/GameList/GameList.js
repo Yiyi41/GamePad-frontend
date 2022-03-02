@@ -2,11 +2,37 @@ import "./GameList.css";
 import logo from "../../assets/img/logo.png";
 import Gamepad from "../../assets/img/Gamepad.png";
 
+import ComboBox from "react-responsive-combo-box"; //this package can be used just for array with string not is not suit for an array with obj
+import "react-responsive-combo-box/dist/index.css";
+
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+let gameTypes = [
+  "All",
+  "Action",
+  "Adventure",
+  "RPG",
+  "Shooter",
+  "Puzzle",
+  "Indie",
+  "Simulation",
+  "Racing",
+  "Strategy",
+];
+
+let PlatformsTab = [
+  "All",
+  "PC",
+  "IOS",
+  "Android",
+  "MacOS",
+  "Nintendo Switch",
+  "Playstation 5",
+];
 
 const GameList = () => {
   const [data, setData] = useState();
@@ -19,6 +45,7 @@ const GameList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // console.log("fetchdata genres: " + genres);
         const response = await axios.get(
           `http://localhost:3000/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
         );
@@ -31,10 +58,12 @@ const GameList = () => {
     };
     fetchData();
   }, [page, search, genres, platforms]);
+
   return isLoading ? (
     <div>is loading</div>
   ) : (
     <div>
+      {/* SEARCH CONTAINER */}
       <div className="searchContainer">
         <div className="search_container_img">
           <img src={logo} alt="" className="img1" />
@@ -52,6 +81,49 @@ const GameList = () => {
         />
       </div>
 
+      {/* COMBO CONTAINER */}
+      <div className="combo-container">
+        <div className="type">
+          <ComboBox
+            inputStyles={{
+              borderRadius: "10px",
+              backgroundColor: "white",
+              textAlign: "center",
+            }}
+            style={{ width: "100px", height: "30px" }}
+            options={gameTypes}
+            enableAutocomplete
+            placeholder="Game Type"
+            onSelect={(option) => setGenres(option)}
+          />
+        </div>
+
+        <div className="platform">
+          <ComboBox
+            inputStyles={{
+              borderRadius: "10px",
+              backgroundColor: "white",
+              textAlign: "center",
+            }}
+            style={{ width: "100px", height: "30px" }}
+            options={PlatformsTab}
+            enableAutocomplete
+            placeholder="Platform"
+            // renderRightElement={() => <FontAwesomeIcon icon="angle-down" />}
+            onSelect={(option) => {
+              if (option === "All") setPlatforms("0");
+              else if (option === "Pc") setPlatforms("4");
+              else if (option === "IOS") setPlatforms("3");
+              else if (option === "Android") setPlatforms("21");
+              else if (option === "MacOS") setPlatforms("5");
+              else if (option === "Nintendo Switch") setPlatforms("7");
+              else if (option === "Playstation 5") setPlatforms("187");
+            }}
+          />
+        </div>
+      </div>
+
+      {/* LIST CONTAINER */}
       <div className="listContainer">
         {data.results.map((game, index) => {
           return (
@@ -67,6 +139,7 @@ const GameList = () => {
         })}
       </div>
 
+      {/* PAGINATION */}
       <div className="btn_pagination">
         <button
           onClick={() => {
