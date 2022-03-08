@@ -83,8 +83,10 @@ const GameList = () => {
 
       {/* COMBO CONTAINER */}
       <div className="combo-container">
+        <p>Filtre:</p>
         <div className="type">
           <ComboBox
+            popoverClassName="combo-box-popover"
             inputStyles={{
               borderRadius: "10px",
               backgroundColor: "white",
@@ -100,6 +102,7 @@ const GameList = () => {
 
         <div className="platform">
           <ComboBox
+            popoverClassName="combo-box-popover"
             inputStyles={{
               borderRadius: "10px",
               backgroundColor: "white",

@@ -27,10 +27,11 @@
 
 /* COMBO CONTAINER */
 .combo-container {
+  gap: 10px;
   display: flex;
   justify-content: center;
-  height: 20px;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .combo-container div {
@@ -39,12 +40,22 @@
 }
 .combo-container p {
   color: white;
+  background-color: #eb555b;
+  padding: 6px;
+  border-radius: 10px;
 }
 
 .combobox {
   width: 100px;
 }
 
+.combo-box-popover {
+  border-radius: 10px;
+}
+
+.combo-box-input {
+  cursor: pointer;
+}
 /* LIST CONTAINER >> GAME CARD */
 
 .listContainer {

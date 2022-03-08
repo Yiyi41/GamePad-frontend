@@ -2,17 +2,26 @@ import "./Header.css";
 import logo from "../../assets/img/logo.png";
 import Gamepad from "../../assets/img/Gamepad.png";
 
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="header">
-      <div className="logocontainer">
+      <Link to="/" className="logocontainer">
         <img src={logo} alt="" className="logo" />
         <img src={Gamepad} alt="" className="gamepad_img" />
-      </div>
+      </Link>
       <div className="ongletBtn">
-        <button>My Collection</button>
-        <button>Sign up</button>
-        <button>Login</button>
+        <Link to="/mycollection">
+          <button>My Collection</button>
+        </Link>
+
+        <Link to="/signup">
+          <button>Sign up</button>
+        </Link>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
       </div>
     </div>
   );
