@@ -20,6 +20,12 @@ const GameDetails = ({ setUserData, userId }) => {
         // console.log(response.data);
         setGame(response.data);
         setIsLoading(false);
+
+        // //  CHECK IS THE GAME IS IN FAVORIT
+        // const response = await axios.post("http://localhost:3000/isfavorite", {
+        //   gameId: id,
+        //   userId: userId,
+        // });
       } catch (error) {
         console.log(error.response.message);
       }
@@ -49,10 +55,13 @@ const GameDetails = ({ setUserData, userId }) => {
   const handleRemove = async () => {
     console.log("to remove");
     try {
-      const response = axios.post("http://localhost:3000/removefavorite", {
-        gameId: game.id,
-        userId: userId,
-      });
+      const response = await axios.post(
+        "http://localhost:3000/removefavorite",
+        {
+          gameId: game.id,
+          userId: userId,
+        }
+      );
 
       console.log(response.data);
       if (response.data) {
