@@ -29,7 +29,7 @@ const GameDetails = ({ setUserData, userId }) => {
 
   // FUNC TO ADD GAME TO FAVORITE
   const handleAdd = async () => {
-    console.log("hello");
+    console.log("to add");
     try {
       const response = await axios.post("http://localhost:3000/addfavorite", {
         gameTitle: game.name,
@@ -46,7 +46,23 @@ const GameDetails = ({ setUserData, userId }) => {
     }
   };
 
-  const handleRemove = async () => {};
+  const handleRemove = async () => {
+    console.log("to remove");
+    try {
+      const response = axios.post("http://localhost:3000/removefavorite", {
+        gameId: game.id,
+        userId: userId,
+      });
+
+      console.log(response.data);
+      if (response.data) {
+        setFavorite(false);
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
   return isLoading ? (
     <div>is loading</div>
   ) : (
@@ -60,16 +76,17 @@ const GameDetails = ({ setUserData, userId }) => {
           {/* BTN BLOCK*/}
           <div className="btn-container">
             {favorite === true ? (
-              <button onClick={handleAdd}>
+              <button onClick={handleRemove}>
                 Saved to <span className="saved">Collection</span> &nbsp;
                 <FontAwesomeIcon icon="bookmark" />
               </button>
             ) : (
-              <button onClick={handleRemove}>
+              <button onClick={handleAdd}>
                 Save to <span className="save">Collection</span> &nbsp;
                 <FontAwesomeIcon icon="bookmark" />
               </button>
             )}
+
             <button>
               Add a Review &nbsp;
               <FontAwesomeIcon icon="message" />
