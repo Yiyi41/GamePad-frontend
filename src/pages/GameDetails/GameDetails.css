@@ -49,6 +49,10 @@
   gap: 10px;
 }
 
+.btn-container > .saved {
+  color: green;
+}
+
 .btn-container button {
   /* background-color: black;
   color: white; */

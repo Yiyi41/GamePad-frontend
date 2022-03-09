@@ -32,8 +32,8 @@ library.add(
 );
 
 function App() {
-  const [userId, setUserId] = useState();
-  const [userToken, setUserToken] = useState(null);
+  const [userId, setUserId] = useState(Cookies.get("userId" || null));
+  const [userToken, setUserToken] = useState(Cookies.get("userToken" || null));
 
   const setUserData = (token, user_id) => {
     if (token) {
@@ -49,12 +49,15 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header setUserData={setUserData} userToken={userToken} />
       <Routes>
         <Route path="/" element={<GameList />} />
-        <Route path="/gamedetails/:id" element={<GameDetails />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/gamedetails/:id"
+          element={<GameDetails setUserData={setUserData} userId={userId} />}
+        />
+        <Route path="/signup" element={<Signup setUserData={setUserData} />} />
+        <Route path="/login" element={<Login setUserData={setUserData} />} />
         <Route path="/mycollection" element={<MyCollection />}></Route>
       </Routes>
       <Footer />

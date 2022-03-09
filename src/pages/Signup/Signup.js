@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Signup = () => {
+const Signup = ({ setUserData }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,22 +25,26 @@ const Signup = () => {
     }
 
     const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
     formData.append("picture", picture);
     console.log(formData);
 
     try {
       const response = await axios.post(
         "http://localhost:3000/signup",
+        formData,
         {
-          username: username,
-          email: email,
-          password: password,
-        },
-        formData
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       console.log(response.data);
+      setUserData(response.data.token, response.data.id);
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response);
     }
   };
 

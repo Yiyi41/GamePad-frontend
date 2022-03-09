@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Login = () => {
+const Login = ({ setUserData }) => {
   const [email, setEmail] = useState("toto@gmail.com");
   const [password, setPassword] = useState("jklm");
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const Login = () => {
       });
 
       if (response.data.token) {
+        setUserData(response.data.token, response.data.id);
         navigate("/");
       }
     } catch (error) {

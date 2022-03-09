@@ -5,11 +5,12 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LinesEllipsis from "react-lines-ellipsis";
 
-const GameDetails = () => {
+const GameDetails = ({ setUserData, userId }) => {
   const { id } = useParams();
   const [game, setGame] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  //   console.log(id);
+  const [favorite, setFavorite] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,6 +26,27 @@ const GameDetails = () => {
     };
     fetchData();
   }, [id]);
+
+  // FUNC TO ADD GAME TO FAVORITE
+  const handleAdd = async () => {
+    console.log("hello");
+    try {
+      const response = await axios.post("http://localhost:3000/addfavorite", {
+        gameTitle: game.name,
+        gameId: game.id,
+        gameImage: game.background_image,
+        userId: userId,
+      });
+      console.log(response.data);
+      if (response.data) {
+        setFavorite(true);
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const handleRemove = async () => {};
   return isLoading ? (
     <div>is loading</div>
   ) : (
@@ -37,10 +59,17 @@ const GameDetails = () => {
         <div className="textContainer">
           {/* BTN BLOCK*/}
           <div className="btn-container">
-            <button>
-              Saved to <span>Collection</span> &nbsp;
-              <FontAwesomeIcon icon="bookmark" />
-            </button>
+            {favorite === true ? (
+              <button onClick={handleAdd}>
+                Saved to <span className="saved">Collection</span> &nbsp;
+                <FontAwesomeIcon icon="bookmark" />
+              </button>
+            ) : (
+              <button onClick={handleRemove}>
+                Save to <span className="save">Collection</span> &nbsp;
+                <FontAwesomeIcon icon="bookmark" />
+              </button>
+            )}
             <button>
               Add a Review &nbsp;
               <FontAwesomeIcon icon="message" />
