@@ -1,0 +1,38 @@
+.favoriteContent {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  height: 700px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+.favoriteGameCard {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.favoriteGameCard img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.bookmark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #eb555b;
+}
+.favoriteGameTitle {
+  color: white;
+  position: absolute;
+  top: 230px;
+}

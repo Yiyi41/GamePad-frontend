@@ -58,7 +58,10 @@ function App() {
         />
         <Route path="/signup" element={<Signup setUserData={setUserData} />} />
         <Route path="/login" element={<Login setUserData={setUserData} />} />
-        <Route path="/mycollection" element={<MyCollection />}></Route>
+        <Route
+          path="/mycollection"
+          element={<MyCollection userToken={userToken} userId={userId} />}
+        ></Route>
       </Routes>
       <Footer />
     </Router>

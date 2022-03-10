@@ -1,15 +1,23 @@
 import "./GameDetails.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LinesEllipsis from "react-lines-ellipsis";
 
+import Modal from "../../components/Modal/Modal";
+
+import Cookies from "js-cookie";
+
 const GameDetails = ({ setUserData, userId }) => {
   const { id } = useParams();
   const [game, setGame] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(false); //STATE CHARGES SAVE GAME BTN
+  const [loginNeeded, setLoginNeeded] = useState(false); //STATE TO INFORM AND SWITCH USER TO LOGIN IF USER WANT TO SAVE THE GAME IN MYCOLLECTION
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,31 +37,40 @@ const GameDetails = ({ setUserData, userId }) => {
             userId: userId,
           }
         );
-        console.log(responseIsFavorite.data);
+        // console.log(responseIsFavorite.data);
         setFavorite(responseIsFavorite.data);
       } catch (error) {
         console.log(error.response.message);
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, userId]);
 
-  // FUNC TO ADD GAME TO FAVORITE
+  // FUNC TO ADD/REMOVE GAME TO FAVORITE
   const handleAdd = async () => {
+    setLoginNeeded(false);
     console.log("for add");
     try {
-      const response = await axios.post("http://localhost:3000/addfavorite", {
-        gameTitle: game.name,
-        gameId: game.id,
-        gameImage: game.background_image,
-        userId: userId,
-      });
-      console.log(response.data);
+      const response = await axios.post(
+        "http://localhost:3000/addfavorite",
+        {
+          gameTitle: game.name,
+          gameId: game.id,
+          gameImage: game.background_image,
+        },
+        { headers: { authorization: `Bearer ${Cookies.get("userToken")}` } }
+      );
+      // console.log(response.data);
       if (response.data) {
         setFavorite(true);
       }
     } catch (error) {
-      console.log(error.response);
+      console.log(error.response.status);
+      if (error.response.status === 401) {
+        // alert("please login:)");
+        setLoginNeeded(true);
+        navigate("/login");
+      }
     }
   };
 
@@ -69,7 +86,7 @@ const GameDetails = ({ setUserData, userId }) => {
           }
         );
 
-        console.log(response.data);
+        // console.log(response.data);
         if (response.data) {
           setFavorite(false);
         }
@@ -77,6 +94,12 @@ const GameDetails = ({ setUserData, userId }) => {
         console.log(error.response);
       }
     }
+  };
+
+  //FUNC FOR ADD REVIEW
+  const handleReview = async () => {
+    console.log("add review");
+    setModalOpen(true);
   };
 
   return isLoading ? (
@@ -94,7 +117,7 @@ const GameDetails = ({ setUserData, userId }) => {
             {favorite === true ? (
               <button onClick={handleRemove}>
                 Saved to <span className="saved">Collection</span> &nbsp;
-                <FontAwesomeIcon icon="bookmark" />
+                <FontAwesomeIcon icon="bookmark" className="saved" />
               </button>
             ) : (
               <button onClick={handleAdd}>
@@ -103,7 +126,7 @@ const GameDetails = ({ setUserData, userId }) => {
               </button>
             )}
 
-            <button>
+            <button onClick={handleReview}>
               Add a Review &nbsp;
               <FontAwesomeIcon icon="message" />
             </button>
@@ -117,7 +140,7 @@ const GameDetails = ({ setUserData, userId }) => {
                 <p>Platforms</p>
                 {game.parent_platforms.map((platform, index) => {
                   return (
-                    <span key={platform.id} className="platform_name">
+                    <span key={index} className="platform_name">
                       {platform.platform.name} &nbsp;
                     </span>
                   );
@@ -172,6 +195,15 @@ const GameDetails = ({ setUserData, userId }) => {
           </div>
         </div>
       </div>
+
+      {modalOpen && (
+        <Modal
+          setOpenModal={setModalOpen}
+          userToken={Cookies.get("userToken")}
+          userId={userId}
+          gameId={id}
+        />
+      )}
       <p className="title2">Game likes {game.name}</p>
       <div className="scroll-container">
         {game.tags.map((tag, index) => {
@@ -181,6 +213,14 @@ const GameDetails = ({ setUserData, userId }) => {
             </div>
           );
         })}
+      </div>
+      <div
+        className="review-container"
+        style={{ color: "white", textAlign: "center" }}
+      >
+        <h2 className="review-title" style={{ fontWeight: "normal" }}>
+          No reviews for this game !
+        </h2>
       </div>
     </div>
   );

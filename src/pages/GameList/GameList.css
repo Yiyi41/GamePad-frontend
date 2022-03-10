@@ -26,6 +26,7 @@
 }
 
 /* COMBO CONTAINER */
+
 .combo-container {
   gap: 10px;
   display: flex;
@@ -53,8 +54,14 @@
   border-radius: 10px;
 }
 
-.combo-box-input {
+/* .type {
   cursor: pointer;
+} */
+
+.combo-icon {
+  color: gray;
+  padding: 5px;
+  /* margin-left: 3px; */
 }
 /* LIST CONTAINER >> GAME CARD */
 
@@ -95,6 +102,7 @@
   align-items: center;
 }
 
-.numberOfPage {
-  color: white;
+.numberOfPage p {
+  color: #eb555b;
+  font-weight: bold;
 }
