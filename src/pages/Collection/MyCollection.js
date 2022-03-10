@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const MyCollection = ({ userToken, userId }) => {
   // console.log(userId);
-  const [data, setdata] = useState();
+  const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const MyCollection = ({ userToken, userId }) => {
           `http://localhost:3000/mycollection/${userId}`
         );
         // console.log(response.data);
-        setdata(response.data);
+        setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);

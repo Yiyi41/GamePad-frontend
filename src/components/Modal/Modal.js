@@ -3,13 +3,14 @@ import "./Modal.css";
 import axios from "axios";
 import { useState } from "react";
 
-const Modal = ({ userId, userToken, gameId }) => {
+const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    console.log(gameTitle);
     try {
       const response = await axios.post(
         "http://localhost:3000/review",
@@ -17,9 +18,14 @@ const Modal = ({ userId, userToken, gameId }) => {
           title: title,
           content: content,
           gameId: gameId,
+          gameTitle: gameTitle,
         },
         { headers: { authorization: "Bearer " + userToken } }
       );
+      console.log(response.data);
+      if (response.data) {
+        setOpenModal(false);
+      }
     } catch (error) {
       console.log(error.response);
     }

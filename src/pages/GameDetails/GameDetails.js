@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LinesEllipsis from "react-lines-ellipsis";
 
 import Modal from "../../components/Modal/Modal";
+import ReviewList from "../../components/ReviewList/ReviewList";
 
 import Cookies from "js-cookie";
 
@@ -196,14 +197,18 @@ const GameDetails = ({ setUserData, userId }) => {
         </div>
       </div>
 
+      {/* REVIEW MODAL */}
       {modalOpen && (
         <Modal
           setOpenModal={setModalOpen}
           userToken={Cookies.get("userToken")}
           userId={userId}
           gameId={id}
+          gameTitle={game.name}
         />
       )}
+
+      {/* SIMILAR GAMES SCROLL */}
       <p className="title2">Game likes {game.name}</p>
       <div className="scroll-container">
         {game.tags.map((tag, index) => {
@@ -214,6 +219,8 @@ const GameDetails = ({ setUserData, userId }) => {
           );
         })}
       </div>
+
+      {/* REVIEW CONTAINER */}
       <div
         className="review-container"
         style={{ color: "white", textAlign: "center" }}
@@ -221,6 +228,7 @@ const GameDetails = ({ setUserData, userId }) => {
         <h2 className="review-title" style={{ fontWeight: "normal" }}>
           No reviews for this game !
         </h2>
+        <ReviewList gameId={id} />
       </div>
     </div>
   );
