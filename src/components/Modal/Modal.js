@@ -25,6 +25,7 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
       console.log(response.data);
       if (response.data) {
         setOpenModal(false);
+        alert("done!");
       }
     } catch (error) {
       console.log(error.response);

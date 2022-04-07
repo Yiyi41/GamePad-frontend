@@ -1,0 +1,17 @@
+/* REVIEW CONTAINER */
+.reviewCard {
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #2a2b2e;
+}
+
+.reviewTitle {
+  text-decoration: underline;
+  color: white;
+}
+.titleReviews {
+  text-align: center;
+  font-weight: 500;
+}

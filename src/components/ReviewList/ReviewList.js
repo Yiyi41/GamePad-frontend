@@ -2,20 +2,18 @@ import "./Review.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const ReviewList = ({ gameId }) => {
-  const [Reviewdata, setReviewData] = useState([]);
-  const [isLoadingReviewList, setIsLoadingReviewList] = useState();
-  //   console.log(gameId);
+const ReviewList = ({ gameId, userId }) => {
+  const [ReviewListData, setReviewListData] = useState([]);
+  const [isLoadingReviewList, setIsLoadingReviewList] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoadingReviewList(true);
         const response = await axios.get(
           `http://localhost:3000/reviewlist/${gameId}`
         );
-        console.log("review list: ", response.data);
-        setReviewData(response.data);
+
+        setReviewListData(response.data);
         setIsLoadingReviewList(false);
       } catch (error) {
         console.log(error.message);
@@ -26,19 +24,17 @@ const ReviewList = ({ gameId }) => {
 
   return isLoadingReviewList ? (
     <div>is loading</div>
-  ) : Reviewdata.length === 0 ? (
-    <h2 className="review-title" style={{ fontWeight: "normal" }}>
-      No reviews for this game !
-    </h2>
+  ) : ReviewListData.length === 0 ? (
+    <h2 className="review-title">No reviews for this game !</h2>
   ) : (
-    <div style={{ color: "white" }}>
-      {Reviewdata.map((review, index) => {
+    <div>
+      <h2 className="titleReviews">Reviews</h2>
+      {ReviewListData.map((review) => {
         return (
-          <div key={index} className="reviewCard">
-            <p className="reviewUser">{review.user}</p>
+          <div key={review.id} className="reviewCard">
             <p className="reviewTitle">{review.title}</p>
             <p className="reviewContent">{review.content}</p>
-            <div></div>
+            <p className="reviewUser">{review.user.account.username}</p>
           </div>
         );
       })}

@@ -100,7 +100,6 @@ const GameDetails = ({ setUserData, userId }) => {
 
   //FUNC FOR ADD REVIEW
   const handleReview = async () => {
-    console.log("add review");
     setModalOpen(true);
   };
 
@@ -222,10 +221,7 @@ const GameDetails = ({ setUserData, userId }) => {
       </div>
 
       {/* REVIEW CONTAINER */}
-      <div
-        className="review-container"
-        style={{ color: "white", textAlign: "center" }}
-      >
+      <div className="review-container">
         <ReviewList gameId={id} userId={userId} />
       </div>
     </div>
