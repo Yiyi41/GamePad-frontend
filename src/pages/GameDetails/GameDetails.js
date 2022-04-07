@@ -23,6 +23,7 @@ const GameDetails = ({ setUserData, userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get(
           `http://localhost:3000/gamedetails/${id}`
         );
@@ -45,7 +46,7 @@ const GameDetails = ({ setUserData, userId }) => {
       }
     };
     fetchData();
-  }, [id, userId]);
+  }, [id, userId, modalOpen]);
 
   // FUNC TO ADD/REMOVE GAME TO FAVORITE
   const handleAdd = async () => {
@@ -225,10 +226,7 @@ const GameDetails = ({ setUserData, userId }) => {
         className="review-container"
         style={{ color: "white", textAlign: "center" }}
       >
-        <h2 className="review-title" style={{ fontWeight: "normal" }}>
-          No reviews for this game !
-        </h2>
-        <ReviewList gameId={id} />
+        <ReviewList gameId={id} userId={userId} />
       </div>
     </div>
   );

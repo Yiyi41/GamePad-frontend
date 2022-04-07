@@ -5,6 +5,8 @@ import Gamepad from "../../assets/img/Gamepad.png";
 import ComboBox from "react-responsive-combo-box"; //this package can be used just for array with string not is not suit for an array with obj
 import "react-responsive-combo-box/dist/index.css";
 
+import ReactPaginate from "react-paginate"; // package for pagination
+
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -42,12 +44,17 @@ const GameList = () => {
   const [genres, setGenres] = useState("");
   const [platforms, setPlatforms] = useState("");
 
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const gamesPerPage = 20;
+  const gamesVisisted = pageNumber * gamesPerPage;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // console.log("fetchdata genres: " + genres);
         const response = await axios.get(
           `http://localhost:3000/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
+          // `http://localhost:3000/?search=${search}&genres=${genres}&platforms=${platforms}`
         );
 
         setData(response.data);
@@ -133,40 +140,37 @@ const GameList = () => {
 
       {/* LIST CONTAINER */}
       <div className="listContainer">
-        {data.results.map((game, index) => {
-          return (
-            <Link to={`/gamedetails/${game.id}`} key={game.id}>
-              <div className="gameCard">
-                {game.background_image ? (
-                  <img src={game.background_image} alt="" />
-                ) : null}
-                <div className="gameName">{game.name}</div>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+        {data.results
+          .slice(gamesVisisted, gamesVisisted + gamesPerPage)
+          .map((game) => {
+            return (
+              <Link to={`/gamedetails/${game.id}`} key={game.id}>
+                <div className="gameCard">
+                  {game.background_image ? (
+                    <img src={game.background_image} alt="" />
+                  ) : null}
+                  <div className="gameName">{game.name}</div>
+                </div>
+              </Link>
+            );
+          })}
 
-      {/* PAGINATION */}
-      <div className="btn_pagination">
-        <button
-          onClick={() => {
-            page > 1 && setPage(page - 1);
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={Math.ceil(data.count / gamesPerPage)}
+          onPageChange={({ selected }) => {
+            setPage(selected + 1);
           }}
-        >
-          <FontAwesomeIcon icon="angle-left" />
-        </button>
-        <div className="numberOfPage">
-          <p>{page}</p>
-        </div>
-
-        <button
-          onClick={() => {
-            setPage(page + 1);
-          }}
-        >
-          <FontAwesomeIcon icon="angle-right" />
-        </button>
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+          breakLabel="..."
+          pageRangeDisplayed={5}
+          marginPagesDisplayed={2}
+        />
       </div>
     </div>
   );
