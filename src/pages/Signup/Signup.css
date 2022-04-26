@@ -1,14 +1,16 @@
 /* CONTENT CONTAINER -- PARENT DIV */
-.content-container {
-  max-width: 800px;
-  background-color: #202020;
-  position: relative;
-  margin: 100px auto;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+@media (min-width: 576px) and (max-width: 1500px) {
+  .content-container {
+    width: 100%;
+    background-color: #202020;
+    position: relative;
+    margin: 100px auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
 }
 
 .instruction-container div {

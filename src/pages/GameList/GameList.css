@@ -54,14 +54,9 @@
   border-radius: 10px;
 }
 
-/* .type {
-  cursor: pointer;
-} */
-
 .combo-icon {
   color: gray;
   padding: 5px;
-  /* margin-left: 3px; */
 }
 /* LIST CONTAINER >> GAME CARD */
 
@@ -92,31 +87,29 @@
 
 /* PAGINATION */
 .paginationBttns {
-  /* background-color: red; */
   padding: 10px;
   display: flex;
   justify-content: center;
   list-style: none;
-  width: 80%;
-  height: 40px;
-  margin: 10px auto;
+  max-width: 80%;
+  margin: 50px auto;
 }
 
 .paginationBttns a {
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 2px palevioletred solid;
-  color: palevioletred;
+  border: 2px #eb555b solid;
+  color: #eb555b;
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
   color: white;
-  background-color: palevioletred;
+  background-color: #eb555b;
 }
 
 .paginationActive a {
   color: white;
-  background-color: palevioletred;
+  background-color: #eb555b;
 }

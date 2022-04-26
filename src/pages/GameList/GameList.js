@@ -98,15 +98,16 @@ const GameList = () => {
               borderRadius: "10px",
               backgroundColor: "white",
               textAlign: "start",
+              cursor: "pointer",
             }}
-            style={{ width: "70px", height: "30px" }}
+            style={{ width: "90px", height: "30px" }}
             options={gameTypes}
             enableAutocomplete
             placeholder="Type"
             onSelect={(option) => setGenres(option)}
-            renderRightElement={() => (
-              <FontAwesomeIcon icon="angle-down" className="combo-icon" />
-            )}
+            // renderRightElement={() => (
+            //   <FontAwesomeIcon icon="angle-down" className="combo-icon" />
+            // )}
           />
         </div>
 
@@ -116,15 +117,16 @@ const GameList = () => {
             inputStyles={{
               borderRadius: "10px",
               backgroundColor: "white",
-              textAlign: "start",
+              textAlign: "center",
+              cursor: "pointer",
             }}
             style={{ width: "100px", height: "30px" }}
             options={PlatformsTab}
             enableAutocomplete
             placeholder="Platform"
-            renderRightElement={() => (
-              <FontAwesomeIcon icon="angle-down" className="combo-icon" />
-            )}
+            // renderRightElement={() => (
+            //   <FontAwesomeIcon icon="angle-down" className="combo-icon" />
+            // )}
             onSelect={(option) => {
               if (option === "All") setPlatforms("0");
               else if (option === "Pc") setPlatforms("4");

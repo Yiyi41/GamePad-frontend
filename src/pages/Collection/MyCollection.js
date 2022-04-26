@@ -27,7 +27,7 @@ const MyCollection = ({ userToken, userId }) => {
   return isLoading ? (
     <div>is loading</div>
   ) : (
-    <div>
+    <div className="main-container">
       <h1>My Collection</h1>
       <div className="favoriteContent">
         {data.map((game, index) => {

@@ -6,8 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Login = ({ setUserData }) => {
-  const [email, setEmail] = useState("toto@gmail.com");
-  const [password, setPassword] = useState("jklm");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
