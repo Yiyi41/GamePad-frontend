@@ -12,7 +12,7 @@ const MyCollection = ({ userToken, userId }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/mycollection/${userId}`
+          `https://my-gamepad-backend-projet.herokuapp.com/mycollection/${userId}`
         );
         // console.log(response.data);
         setData(response.data);

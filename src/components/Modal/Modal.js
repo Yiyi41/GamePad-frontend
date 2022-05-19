@@ -13,7 +13,7 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
     console.log(gameTitle);
     try {
       const response = await axios.post(
-        "http://localhost:3000/review",
+        "https://my-gamepad-backend-projet.herokuapp.com/review",
         {
           title: title,
           content: content,

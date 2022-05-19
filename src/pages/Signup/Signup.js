@@ -33,7 +33,7 @@ const Signup = ({ setUserData }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/signup",
+        "https://my-gamepad-backend-projet.herokuapp.com/signup",
         formData,
         {
           headers: {

@@ -14,10 +14,13 @@ const Login = ({ setUserData }) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/login", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://my-gamepad-backend-projet.herokuapp.com/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
 
       if (response.data.token) {
         setUserData(response.data.token, response.data.id);

@@ -10,7 +10,7 @@ const ReviewList = ({ gameId, userId }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/reviewlist/${gameId}`
+          `https://my-gamepad-backend-projet.herokuapp.com/reviewlist/${gameId}`
         );
 
         setReviewListData(response.data);

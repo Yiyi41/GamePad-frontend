@@ -53,7 +53,7 @@ const GameList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
+          `https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
           // `http://localhost:3000/?search=${search}&genres=${genres}&platforms=${platforms}`
         );
 
