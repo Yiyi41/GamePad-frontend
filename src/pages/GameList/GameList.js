@@ -8,7 +8,6 @@ import "react-responsive-combo-box/dist/index.css";
 import ReactPaginate from "react-paginate"; // package for pagination
 
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -53,7 +52,7 @@ const GameList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
+          `https://cors-anywhere.herokuapp.com/https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
         );
 
         setData(response.data);
