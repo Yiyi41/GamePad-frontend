@@ -2,7 +2,7 @@
   margin: 0 auto;
   background-color: #202020;
   border-radius: 10px;
-  height: 250px;
+  height: 350px;
   max-width: 100vh;
 }
 .modalTitle {
@@ -15,18 +15,24 @@
   align-items: center;
 }
 
-.modalForm input textarea {
+.modalForm input {
   border-radius: 8px;
   height: 30px;
-  width: 100px;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.modalForm textarea {
+  height: 80px;
+  width: 450px;
 }
 
 .modalContainer p {
   color: white;
 }
 .modalContainer {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+  padding: 5px;
 }

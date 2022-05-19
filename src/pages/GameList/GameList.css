@@ -71,6 +71,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .gameCard img {
@@ -99,17 +100,17 @@
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 2px #eb555b solid;
-  color: #eb555b;
+  border: 1px lightgrey solid;
+  color: white;
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
-  color: white;
-  background-color: #eb555b;
+  color: #eb555b;
+  background-color: white;
 }
 
 .paginationActive a {
   color: white;
-  background-color: #eb555b;
+  color: white;
 }

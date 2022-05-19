@@ -51,10 +51,12 @@ const GameList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let genre = genres.toLowerCase();
         const response = await axios.get(
-          `https://my-gamepad-backend-projet.herokuapp.com/gameList?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
+          `https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genre}&platforms=${platforms}`
         );
 
+        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -103,9 +105,6 @@ const GameList = () => {
             enableAutocomplete
             placeholder="Type"
             onSelect={(option) => setGenres(option)}
-            // renderRightElement={() => (
-            //   <FontAwesomeIcon icon="angle-down" className="combo-icon" />
-            // )}
           />
         </div>
 
@@ -122,12 +121,9 @@ const GameList = () => {
             options={PlatformsTab}
             enableAutocomplete
             placeholder="Platform"
-            // renderRightElement={() => (
-            //   <FontAwesomeIcon icon="angle-down" className="combo-icon" />
-            // )}
             onSelect={(option) => {
               if (option === "All") setPlatforms("0");
-              else if (option === "Pc") setPlatforms("4");
+              else if (option === "PC") setPlatforms("4");
               else if (option === "IOS") setPlatforms("3");
               else if (option === "Android") setPlatforms("21");
               else if (option === "MacOS") setPlatforms("5");
