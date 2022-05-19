@@ -54,7 +54,6 @@ const GameList = () => {
       try {
         const response = await axios.get(
           `https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
-          // `http://localhost:3000/?search=${search}&genres=${genres}&platforms=${platforms}`
         );
 
         setData(response.data);
