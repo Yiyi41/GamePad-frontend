@@ -52,7 +52,7 @@ const GameList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
+          `https://my-gamepad-backend-projet.herokuapp.com/gameList?page=${page}&search=${search}&genres=${genres}&platforms=${platforms}`
         );
 
         setData(response.data);
