@@ -1,21 +1,3 @@
-@media (min-width: 300px) and (max-width: 576px) {
-  .gameCard {
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .gameCard img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 20px;
-    padding: 10px;
-  }
-}
-
 /* SEARCH CONTAINER  */
 .searchContainer {
   display: flex;
@@ -131,4 +113,22 @@
 .paginationActive a {
   color: white;
   color: white;
+}
+
+@media (min-width: 300px) and (max-width: 576px) {
+  .gameCard {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .gameCard img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    padding: 10px;
+  }
 }
