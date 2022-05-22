@@ -28,3 +28,25 @@
 .gamepad_img {
   height: 40px;
 }
+
+@media (min-width: 300px) and (max-width: 576px) {
+  .logocontainer {
+    display: none;
+  }
+
+  .ongletBtn {
+    margin-left: 280px;
+  }
+
+  .search_container_img .img1 {
+    height: 60px;
+  }
+
+  .search_container_img .img2 {
+    height: 40px;
+  }
+
+  .gameName {
+    font-size: 0.8rem;
+  }
+}
