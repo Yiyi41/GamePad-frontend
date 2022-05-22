@@ -114,6 +114,13 @@
 }
 
 @media (min-width: 300px) and (max-width: 576px) {
+  .listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3;
+    justify-content: center;
+  }
+
   .gameCard {
     width: 150px;
     display: flex;
