@@ -113,7 +113,7 @@
   color: white;
 }
 
-@media (min-width: 300px) and (max-width: 576px) {
+@media (min-width: 300px) and (max-width: 768px) {
   .search_container_img .img1 {
     height: 60px;
   }
