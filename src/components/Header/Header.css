@@ -35,18 +35,26 @@
 }
 
 @media (min-width: 300px) and (max-width: 576px) {
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 2px solid #eb565b;
+    padding: 10px;
+  }
+
   .logocontainer {
     display: none;
   }
 
   .ongletBtn {
-    margin-left: 280px;
+    /* margin-left: 280px; */
+    margin: 0 auto;
   }
 
   .register-btn {
     display: flex;
     grid-gap: 3px;
     gap: 3px;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 }
