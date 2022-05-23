@@ -17,11 +17,21 @@
   gap: 3px;
 }
 
+.login-btn {
+  background-color: #eb555b;
+  width: 60px;
+}
+
+.myCollection-btn {
+  width: 120px;
+  background-color: black;
+  color: whitesmoke;
+  font-size: 1rem;
+}
 .ongletBtn button {
   border-radius: 5px;
   border: none;
   height: 30px;
-  max-width: 100px;
   cursor: pointer;
 }
 

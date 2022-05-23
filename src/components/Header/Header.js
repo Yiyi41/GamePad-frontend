@@ -17,6 +17,7 @@ const Header = ({ setUserData, userToken }) => {
       <div className="ongletBtn">
         <div>
           <button
+            className="myCollection-btn"
             onClick={() => {
               userToken ? navigate("/mycollection") : navigate("/login");
             }}
@@ -38,11 +39,11 @@ const Header = ({ setUserData, userToken }) => {
           </button>
         ) : (
           <div className="register-btn">
-            <Link to="/signup">
+            {/* <Link to="/signup">
               <button>Sign up</button>
-            </Link>
+            </Link> */}
             <Link to="/login">
-              <button>Login</button>
+              <button className="login-btn">Login</button>
             </Link>
           </div>
         )}
