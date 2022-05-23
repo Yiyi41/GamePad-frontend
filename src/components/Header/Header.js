@@ -15,13 +15,16 @@ const Header = ({ setUserData, userToken }) => {
         <img src={Gamepad} alt="" className="gamepad_img" />
       </Link>
       <div className="ongletBtn">
-        <button
-          onClick={() => {
-            userToken ? navigate("/mycollection") : navigate("/login");
-          }}
-        >
-          My Collection
-        </button>
+        <div>
+          <button
+            onClick={() => {
+              userToken ? navigate("/mycollection") : navigate("/login");
+            }}
+          >
+            My Collection
+          </button>
+        </div>
+
         {userToken ? (
           <button
             onClick={() => {
@@ -34,7 +37,7 @@ const Header = ({ setUserData, userToken }) => {
             Logout
           </button>
         ) : (
-          <div>
+          <div className="register-btn">
             <Link to="/signup">
               <button>Sign up</button>
             </Link>
