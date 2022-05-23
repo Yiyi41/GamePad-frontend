@@ -21,6 +21,7 @@ const Login = ({ setUserData }) => {
           password: password,
         }
       );
+      console.log(response);
 
       if (response.data.token) {
         setUserData(response.data.token, response.data.id);
@@ -41,8 +42,9 @@ const Login = ({ setUserData }) => {
         <h3>How it works?</h3>
         <div>
           <FontAwesomeIcon icon="user" />
-          <p style={{ width: "250px" }}>
-            Login to your free account to be able to get all features of Gamepad
+          <p>
+            Login to your free account to be <br />
+            able to get all features of Gamepad
           </p>
         </div>
         <div>

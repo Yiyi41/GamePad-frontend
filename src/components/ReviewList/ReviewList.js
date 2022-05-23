@@ -23,7 +23,7 @@ const ReviewList = ({ gameId, userId }) => {
   }, [gameId]);
 
   return isLoadingReviewList ? (
-    <div className="loading">is loading</div>
+    <div className="loading ... ">is loading</div>
   ) : ReviewListData.length === 0 ? (
     <h2 className="review-title">No reviews for this game !</h2>
   ) : (
