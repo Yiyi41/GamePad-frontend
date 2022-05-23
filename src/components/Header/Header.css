@@ -35,16 +35,15 @@
   height: 40px;
 }
 
-@media (min-width: 300px) and (max-width: 576px) {
-  .header {
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 2px solid #eb565b;
-    padding: 10px;
+@media (min-width: 300px) and (max-width: 768px) {
+  .gamepad_img {
+    display: none;
   }
 
-  .logocontainer {
-    display: none;
+  .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
   }
 
   .register-btn {
@@ -52,5 +51,14 @@
     grid-gap: 1px;
     gap: 1px;
     /* flex-direction: column; */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 2200px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #eb565b;
+    padding: 10px;
   }
 }

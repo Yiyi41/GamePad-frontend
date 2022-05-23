@@ -90,6 +90,11 @@ p {
     display: flex;
     flex-wrap: wrap;
   }
+
+  .scroll-container img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1500px) {
