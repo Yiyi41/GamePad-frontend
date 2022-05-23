@@ -1,6 +1,7 @@
 import "./Review.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ReviewList = ({ gameId, userId }) => {
   const [ReviewListData, setReviewListData] = useState([]);
@@ -23,7 +24,7 @@ const ReviewList = ({ gameId, userId }) => {
   }, [gameId]);
 
   return isLoadingReviewList ? (
-    <div className="loading ... ">is loading</div>
+    <div className="loading">🤖 in a few seconds... 🤩</div>
   ) : ReviewListData.length === 0 ? (
     <h2 className="review-title">No reviews for this game !</h2>
   ) : (
@@ -34,7 +35,20 @@ const ReviewList = ({ gameId, userId }) => {
           <div key={review._id} className="reviewCard">
             <p className="reviewTitle">{review.title}</p>
             <p className="reviewContent">{review.content}</p>
-            <p className="reviewUser">{review.user.account.username}</p>
+            <div className="userInfo">
+              <div></div>
+              {review.user.account.picture.secure_url ? (
+                <img
+                  src={review.user.account.picture.secure_url}
+                  alt=""
+                  className="userPicture"
+                />
+              ) : (
+                <FontAwesomeIcon icon="faUserSecret" />
+              )}
+
+              <p className="reviewUser">{review.user.account.username}</p>
+            </div>
           </div>
         );
       })}

@@ -2,7 +2,7 @@ import "./Signup.css";
 import logo from "../../assets/img/logo.png";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,10 +14,12 @@ const Signup = ({ setUserData }) => {
   const [picture, setPicture] = useState();
   const [alert, setAlert] = useState("😎 Welcome!");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // console.log(username, email, password);
+    console.log(username, email, password);
     if (!username || !email) {
       setAlert("username et email sont obligatoires!");
     } else if (password !== confirmPassword) {
@@ -29,7 +31,7 @@ const Signup = ({ setUserData }) => {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("picture", picture);
-    console.log(formData);
+    // console.log(formData);
 
     try {
       const response = await axios.post(
@@ -41,8 +43,11 @@ const Signup = ({ setUserData }) => {
           },
         }
       );
-      console.log(response.data);
-      setUserData(response.data.token, response.data.id);
+      console.log(response);
+      if (response.data.token) {
+        setUserData(response.data.token, response.data.id);
+        navigate("/");
+      }
     } catch (error) {
       console.log(error.response);
     }
@@ -110,16 +115,19 @@ const Signup = ({ setUserData }) => {
               }}
             />
           </div>
-          {/* <label for="upload-photo">Ajouter</label>  */}
+
           <input
             type="file"
-            // name="photo"
             onChange={(event) => {
               setPicture(event.target.files[0]);
             }}
           />
           <p className="alert">{alert}</p>
-          <input type="submit" className="valid-input" value="Connexion" />
+          <input
+            type="submit"
+            className="valid-input"
+            value="Creat my account"
+          />
           <Link to="/login" className="account-already">
             Already have an account?
           </Link>

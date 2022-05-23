@@ -93,7 +93,9 @@ p {
 
   .scroll-container {
     display: flex;
-    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
   }
 
   .scroll-container img {

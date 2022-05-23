@@ -2,16 +2,34 @@
 .reviewCard {
   max-width: 600px;
   margin: 15px auto;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   background-color: #2a2b2e;
+  border: #eb565b 1px solid;
 }
 
 .reviewTitle {
   text-decoration: underline;
   color: white;
+  font-size: 1.2rem;
 }
 .titleReviews {
   text-align: center;
   font-weight: 500;
+}
+
+.userInfo {
+  gap: 10px;
+  display: flex;
+}
+
+.userInfo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rewiewUser {
+  color: white;
 }

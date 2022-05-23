@@ -20,6 +20,7 @@ import {
   faUser,
   faBookmark,
   faMessage,
+  faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -28,12 +29,14 @@ library.add(
   faAngleDown,
   faUser,
   faBookmark,
-  faMessage
+  faMessage,
+  faUserSecret
 );
 
 function App() {
   const [userId, setUserId] = useState(Cookies.get("userId" || null));
   const [userToken, setUserToken] = useState(Cookies.get("userToken" || null));
+  // const [userPicture,setUserPicture] = useState()
 
   const setUserData = (token, user_id) => {
     if (token) {
