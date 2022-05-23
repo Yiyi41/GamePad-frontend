@@ -13,3 +13,11 @@ body {
 .main-container {
   max-width: 1500px;
 }
+
+.loading {
+  margin: 300px auto;
+  max-width: 600px;
+  color: #eb565b;
+  font-size: 3rem;
+  text-align: center;
+}

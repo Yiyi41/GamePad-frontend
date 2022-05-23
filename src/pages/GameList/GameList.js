@@ -67,7 +67,7 @@ const GameList = () => {
   }, [page, search, genres, platforms]);
 
   return isLoading ? (
-    <div>is loading</div>
+    <div className="loading">is loading ... </div>
   ) : (
     <div>
       {/* SEARCH CONTAINER */}

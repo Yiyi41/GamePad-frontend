@@ -104,7 +104,7 @@ const GameDetails = ({ setUserData, userId }) => {
   };
 
   return isLoading ? (
-    <div>is loading</div>
+    <div className="loading">is loading</div>
   ) : (
     <div className="content">
       <p className="title">{game.name}</p>

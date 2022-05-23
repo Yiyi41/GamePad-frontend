@@ -25,7 +25,7 @@ const MyCollection = ({ userToken, userId }) => {
   }, [userId]);
 
   return isLoading ? (
-    <div>is loading</div>
+    <div className="loading">is loading</div>
   ) : (
     <div className="main-container">
       <h1>My Collection</h1>
