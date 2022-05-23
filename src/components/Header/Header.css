@@ -4,6 +4,7 @@
   align-items: center;
   border-bottom: #eb565b solid 2px;
   padding: 10px;
+  margin-top: 10px;
 }
 
 .ongletBtn {
@@ -53,8 +54,8 @@
 
   .register-btn {
     display: flex;
-    grid-gap: 3px;
-    gap: 3px;
+    grid-gap: 2px;
+    gap: 2px;
     /* flex-direction: column; */
   }
 }
