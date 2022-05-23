@@ -23,7 +23,7 @@
 }
 
 .myCollection-btn {
-  width: 120px;
+  max-width: 120px;
   background-color: black;
   color: whitesmoke;
   font-size: 1rem;
