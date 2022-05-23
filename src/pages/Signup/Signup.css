@@ -22,7 +22,6 @@
   flex-direction: column;
   grid-gap: 10px;
   gap: 10px;
-  border-left: #eb555b 2px solid;
   padding: 30px;
   height: 500px;
   align-items: center;
@@ -92,9 +91,33 @@
 
 /* RESPONSIVE */
 
-@media (min-width: 300px) and (max-width: 576px) {
+@media (min-width: 300px) and (max-width: 768px) {
+  .content-container {
+    background-color: #202020;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: #eb555b 2px solid;
+    padding: 30px;
+    height: 420px;
+  }
+
+  .instruction-container {
+    height: 300px;
+  }
 }
 
 /* CONTENT CONTAINER -- PARENT DIV */
-@media (min-width: 576px) and (max-width: 1500px) {
+@media (min-width: 769px) and (max-width: 2200px) {
+  .form-container {
+    border-left: #eb555b 2px solid;
+  }
 }

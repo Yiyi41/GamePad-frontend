@@ -56,22 +56,21 @@ const Signup = ({ setUserData }) => {
 
       <div className="instruction-container">
         <h3>How it works?</h3>
-        <div className="steps">
-          <div>
-            <FontAwesomeIcon icon="user" />
-            <p style={{ width: "250px" }}>
-              Login to your free account to be able to get all features of
-              Gamepad
-            </p>
-          </div>
-          <div>
-            <FontAwesomeIcon icon="bookmark" />
-            <p>Add a game to your collection</p>
-          </div>
-          <div>
-            <FontAwesomeIcon icon="message" />
-            <p>Leave a review for a game</p>
-          </div>
+
+        <div>
+          <FontAwesomeIcon icon="user" />
+          <p>
+            Login to your free account to be
+            <br /> able to get all features of Gamepad
+          </p>
+        </div>
+        <div>
+          <FontAwesomeIcon icon="bookmark" />
+          <p>Add a game to your collection</p>
+        </div>
+        <div>
+          <FontAwesomeIcon icon="message" />
+          <p>Leave a review for a game</p>
         </div>
       </div>
       <div>
