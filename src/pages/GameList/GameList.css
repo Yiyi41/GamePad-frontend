@@ -114,12 +114,16 @@
 }
 
 @media (min-width: 300px) and (max-width: 768px) {
-  .search_container_img .img1 {
+  /* .search_container_img .img1 {
     height: 60px;
   }
 
   .search_container_img .img2 {
     height: 40px;
+  } */
+
+  .search_container_img {
+    display: none;
   }
 
   .listContainer {
