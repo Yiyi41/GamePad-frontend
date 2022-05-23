@@ -28,8 +28,9 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  background-color: aliceblue;
 }
 
-.rewiewUser {
+.reviewUser {
   color: white;
 }

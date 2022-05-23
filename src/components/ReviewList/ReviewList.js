@@ -1,7 +1,8 @@
 import "./Review.css";
+
+import defaultuser from "../../assets/img/defaultuser.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ReviewList = ({ gameId, userId }) => {
   const [ReviewListData, setReviewListData] = useState([]);
@@ -36,15 +37,19 @@ const ReviewList = ({ gameId, userId }) => {
             <p className="reviewTitle">{review.title}</p>
             <p className="reviewContent">{review.content}</p>
             <div className="userInfo">
-              <div></div>
-              {review.user.account.picture.secure_url ? (
+              {/* <img
+                src={review.user.account.picture.secure_url}
+                alt=""
+                className="userPicture"
+              /> */}
+              {review.user.account.picture ? (
                 <img
                   src={review.user.account.picture.secure_url}
                   alt=""
                   className="userPicture"
                 />
               ) : (
-                <FontAwesomeIcon icon="faUserSecret" />
+                <img src={defaultuser} alt="" className="Avatar" />
               )}
 
               <p className="reviewUser">{review.user.account.username}</p>

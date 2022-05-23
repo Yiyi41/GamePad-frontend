@@ -11,21 +11,21 @@ const Signup = ({ setUserData }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [picture, setPicture] = useState();
+  const [picture, setPicture] = useState(""); // /src/assets/img/logo.png");
   const [alert, setAlert] = useState("😎 Welcome!");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    console.log(username, email, password);
+    console.log("handle submit");
+    // console.log(username, email, password);
     if (!username || !email) {
       setAlert("username et email sont obligatoires!");
     } else if (password !== confirmPassword) {
       setAlert("password et confirmPass doivent être identiques!");
     }
-
+    console.log("picture path: " + picture);
     const formData = new FormData();
     formData.append("username", username);
     formData.append("email", email);
@@ -43,7 +43,7 @@ const Signup = ({ setUserData }) => {
           },
         }
       );
-      console.log(response);
+
       if (response.data.token) {
         setUserData(response.data.token, response.data.id);
         navigate("/");
