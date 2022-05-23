@@ -1,22 +1,18 @@
-/* CONTENT CONTAINER -- PARENT DIV */
-@media (min-width: 576px) and (max-width: 1500px) {
-  .content-container {
-    width: 100%;
-    background-color: #202020;
-    position: relative;
-    margin: 100px auto;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-  }
+.content-container {
+  max-width: 100%;
+  background-color: #202020;
+  position: relative;
+  margin: 100px auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 .instruction-container div {
   display: flex;
   align-items: center;
-  flex-direction: row;
   gap: 10px;
 }
 
@@ -47,6 +43,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .form-title {
@@ -86,4 +88,13 @@
 
 .account-already {
   color: white;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 300px) and (max-width: 576px) {
+}
+
+/* CONTENT CONTAINER -- PARENT DIV */
+@media (min-width: 576px) and (max-width: 1500px) {
 }

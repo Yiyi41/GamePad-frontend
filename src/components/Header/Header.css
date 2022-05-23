@@ -47,11 +47,6 @@
     display: none;
   }
 
-  .ongletBtn {
-    /* margin-left: 280px; */
-    /* margin: 0 auto; */
-  }
-
   .register-btn {
     display: flex;
     grid-gap: 1px;
