@@ -165,7 +165,7 @@ const GameList = () => {
           activeClassName={"paginationActive"}
           breakLabel="..."
           pageRangeDisplayed={3}
-          marginPagesDisplayed={2}
+          marginPagesDisplayed={1}
         />
       </div>
     </div>
