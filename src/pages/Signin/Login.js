@@ -33,7 +33,10 @@ const Login = ({ setUserData }) => {
 
   return (
     <div className="content-container">
-      <img src={logo} alt="" className="img-logo" />
+      <Link to="/">
+        <img src={logo} alt="" className="img-logo" />
+      </Link>
+
       <div className="instruction-container">
         <h3>How it works?</h3>
         <div>
