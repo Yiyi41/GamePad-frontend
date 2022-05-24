@@ -2,6 +2,7 @@ import "./MyCollection.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const MyCollection = ({ userToken, userId }) => {
   // console.log(userId);
@@ -32,11 +33,15 @@ const MyCollection = ({ userToken, userId }) => {
       <div className="favoriteContent">
         {data.map((game, index) => {
           return (
-            <div key={index} className="favoriteGameCard">
+            <Link
+              to={`/gamedetails/${game.gameId}`}
+              key={index}
+              className="favoriteGameCard"
+            >
               <FontAwesomeIcon icon="bookmark" className="bookmark" />
               <img src={game.gameImage} alt="" />
               <p className="favoriteGameTitle">{game.gameTitle}</p>
-            </div>
+            </Link>
           );
         })}
       </div>

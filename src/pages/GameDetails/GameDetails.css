@@ -86,6 +86,14 @@ p {
 }
 
 @media (min-width: 300px) and (max-width: 768px) {
+  .imgContainer {
+    margin: 0 auto;
+  }
+
+  .title {
+    text-align: center;
+  }
+
   .first-block-content {
     display: flex;
     flex-direction: column;
