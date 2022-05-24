@@ -2,7 +2,7 @@
   margin: 0 auto;
   background-color: #202020;
   border-radius: 10px;
-  height: 350px;
+  max-height: 350px;
   max-width: 100vh;
 }
 .modalTitle {
@@ -17,8 +17,8 @@
 
 .modalForm input {
   border-radius: 8px;
-  height: 30px;
-  width: 150px;
+  max-height: 30px;
+  max-width: 150px;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
@@ -28,6 +28,7 @@
 .modalForm textarea {
   height: 80px;
   width: 450px;
+  border-radius: 5px;
 }
 
 .modalContainer p {
@@ -35,4 +36,10 @@
 }
 .modalContainer {
   padding: 5px;
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+  .modalForm textarea {
+    max-width: 250px;
+  }
 }
