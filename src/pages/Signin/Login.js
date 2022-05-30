@@ -65,7 +65,7 @@ const Login = ({ setUserData }) => {
           placeholder="email"
           value={email}
           onChange={(event) => {
-            setEmail(event.target.value);
+            setEmail(event.target.value.toLowerCase());
           }}
         />
         <input
@@ -73,7 +73,7 @@ const Login = ({ setUserData }) => {
           placeholder="password"
           value={password}
           onChange={(event) => {
-            setPassword(event.target.value);
+            setPassword(event.target.value.toLowerCase());
           }}
         />
         <input type="submit" value="Login" className="valid-input" />

@@ -94,7 +94,7 @@ const Signup = ({ setUserData }) => {
             placeholder="email"
             value={email}
             onChange={(event) => {
-              setEmail(event.target.value);
+              setEmail(event.target.value.toLowerCase());
             }}
           />
           <div className="password-btn">
@@ -103,7 +103,7 @@ const Signup = ({ setUserData }) => {
               placeholder="password"
               value={password}
               onChange={(event) => {
-                setPassword(event.target.value);
+                setPassword(event.target.value.toLowerCase());
               }}
             />
             <input
@@ -111,7 +111,7 @@ const Signup = ({ setUserData }) => {
               placeholder="confirmPassword"
               value={confirmPassword}
               onChange={(event) => {
-                setConfirmPassword(event.target.value);
+                setConfirmPassword(event.target.value.toLowerCase());
               }}
             />
           </div>
