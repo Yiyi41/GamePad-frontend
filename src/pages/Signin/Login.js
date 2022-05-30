@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../components/ModalAlert/ModalAlert";
 
 const Login = ({ setUserData }) => {
   const [email, setEmail] = useState("");
@@ -28,6 +29,7 @@ const Login = ({ setUserData }) => {
         navigate("/");
       }
     } catch (error) {
+      alert("Accès non autorisé");
       console.log(error.response);
     }
   };
@@ -56,31 +58,30 @@ const Login = ({ setUserData }) => {
           <p>Leave a review for a game</p>
         </div>
       </div>
-      <div>
-        <form className="form-container" onSubmit={handleSubmit}>
-          <p className="form-title">Login</p>
-          <input
-            type="text"
-            placeholder="email"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="password"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
-          <input type="submit" value="Login" className="valid-input" />
-          <Link to="/signup" className="account-already">
-            Don't have an account yet?
-          </Link>
-        </form>
-      </div>
+
+      <form className="form-container" onSubmit={handleSubmit}>
+        <p className="form-title">Login</p>
+        <input
+          type="text"
+          placeholder="email"
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="password"
+          value={password}
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+        />
+        <input type="submit" value="Login" className="valid-input" />
+        <Link to="/signup" className="account-already">
+          Don't have an account yet?
+        </Link>
+      </form>
     </div>
   );
 };

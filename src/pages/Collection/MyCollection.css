@@ -1,4 +1,4 @@
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 300px) and (max-width: 767px) {
   .favoriteContent {
     margin-top: 50px;
     display: flex;
@@ -6,7 +6,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1500px) {
+@media (min-width: 768px) and (max-width: 2200px) {
   .favoriteContent {
     margin-top: 50px;
     display: flex;
