@@ -4,9 +4,18 @@ import Gamepad from "../../assets/img/Gamepad.png";
 import Cookies from "js-cookie";
 
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Header = ({ setUserData, userToken }) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+      } catch (error) {}
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="header">
