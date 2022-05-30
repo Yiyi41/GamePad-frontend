@@ -99,7 +99,7 @@ const Signup = ({ setUserData }) => {
           />
           <div className="password-btn">
             <input
-              type="text"
+              type="password"
               placeholder="password"
               value={password}
               onChange={(event) => {
