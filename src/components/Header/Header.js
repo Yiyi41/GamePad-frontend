@@ -9,14 +9,6 @@ import { useEffect } from "react";
 const Header = ({ setUserData, userToken }) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-      } catch (error) {}
-    };
-    fetchData();
-  }, []);
-
   return (
     <div className="header">
       <Link to="/" className="logocontainer">

@@ -21,6 +21,7 @@ import {
   faBookmark,
   faMessage,
   faUserSecret,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -30,7 +31,8 @@ library.add(
   faUser,
   faBookmark,
   faMessage,
-  faUserSecret
+  faUserSecret,
+  faXmark
 );
 
 function App() {

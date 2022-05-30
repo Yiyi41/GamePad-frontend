@@ -5,6 +5,17 @@
   max-height: 350px;
   max-width: 100vh;
 }
+
+.close {
+  font-size: 1.2rem;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background-color: #202020;
+  border: none;
+  color: #eb565b;
+}
+
 .modalTitle {
   text-align: center;
 }
@@ -36,6 +47,7 @@
 }
 .modalContainer {
   padding: 5px;
+  position: relative;
 }
 
 @media (min-width: 300px) and (max-width: 768px) {

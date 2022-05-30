@@ -1,5 +1,5 @@
 import "./Modal.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useState } from "react";
 
@@ -25,7 +25,6 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
       console.log(response.data);
       if (response.data) {
         setOpenModal(false);
-        // alert("done!");
       }
     } catch (error) {
       console.log(error.response);
@@ -34,6 +33,14 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
+        <button
+          className="close"
+          onClick={() => {
+            setOpenModal(false);
+          }}
+        >
+          <FontAwesomeIcon icon="xmark" />
+        </button>
         <div className="modalTitle">
           <h3>Write a Review</h3>
         </div>
