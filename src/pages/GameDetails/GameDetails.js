@@ -108,6 +108,8 @@ const GameDetails = ({ setUserData, userId }) => {
   ) : (
     <div className="content">
       <p className="title">{game.name}</p>
+
+      {/* REVIEW MODAL */}
       {modalOpen && (
         <Modal
           setOpenModal={setModalOpen}
@@ -207,17 +209,6 @@ const GameDetails = ({ setUserData, userId }) => {
           </div>
         </div>
       </div>
-
-      {/* REVIEW MODAL */}
-      {/* {modalOpen && (
-        <Modal
-          setOpenModal={setModalOpen}
-          userToken={Cookies.get("userToken")}
-          userId={userId}
-          gameId={id}
-          gameTitle={game.name}
-        />
-      )} */}
 
       {/* SIMILAR GAMES SCROLL */}
       <p className="title2">Game likes {game.name}</p>
