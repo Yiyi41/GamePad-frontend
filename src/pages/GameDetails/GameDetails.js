@@ -108,10 +108,21 @@ const GameDetails = ({ setUserData, userId }) => {
   ) : (
     <div className="content">
       <p className="title">{game.name}</p>
+      {modalOpen && (
+        <Modal
+          setOpenModal={setModalOpen}
+          userToken={Cookies.get("userToken")}
+          userId={userId}
+          gameId={id}
+          gameTitle={game.name}
+        />
+      )}
+
       <div className="first-block-content">
         <div className="imgContainer">
           <img src={game.background_image} alt="" />
         </div>
+
         <div className="textContainer">
           {/* BTN BLOCK*/}
           <div className="btn-container">
@@ -198,7 +209,7 @@ const GameDetails = ({ setUserData, userId }) => {
       </div>
 
       {/* REVIEW MODAL */}
-      {modalOpen && (
+      {/* {modalOpen && (
         <Modal
           setOpenModal={setModalOpen}
           userToken={Cookies.get("userToken")}
@@ -206,7 +217,7 @@ const GameDetails = ({ setUserData, userId }) => {
           gameId={id}
           gameTitle={game.name}
         />
-      )}
+      )} */}
 
       {/* SIMILAR GAMES SCROLL */}
       <p className="title2">Game likes {game.name}</p>
