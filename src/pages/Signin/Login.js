@@ -69,7 +69,7 @@ const Login = ({ setUserData }) => {
           }}
         />
         <input
-          type="text"
+          type="password"
           placeholder="password"
           value={password}
           onChange={(event) => {
