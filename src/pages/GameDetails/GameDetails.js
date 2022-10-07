@@ -1,4 +1,5 @@
 import "./GameDetails.css";
+import Loader from "../../components/Loader/Loader";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -104,7 +105,7 @@ const GameDetails = ({ setUserData, userId }) => {
   };
 
   return isLoading ? (
-    <div className="loading ... ">🤖 in a few seconds... 🤩</div>
+    <Loader />
   ) : (
     <div className="content">
       <p className="title">{game.name}</p>

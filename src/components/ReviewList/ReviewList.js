@@ -3,6 +3,7 @@ import "./Review.css";
 import defaultuser from "../../assets/img/defaultuser.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from "../Loader/Loader";
 
 const ReviewList = ({ gameId, userId }) => {
   const [ReviewListData, setReviewListData] = useState([]);
@@ -25,7 +26,7 @@ const ReviewList = ({ gameId, userId }) => {
   }, [gameId]);
 
   return isLoadingReviewList ? (
-    <div className="loading">🤖 in a few seconds... 🤩</div>
+    <Loader />
   ) : ReviewListData.length === 0 ? (
     <h2 className="review-title">No reviews for this game !</h2>
   ) : (

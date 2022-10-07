@@ -1,8 +1,10 @@
 import "./MyCollection.css";
+
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 const MyCollection = ({ userToken, userId }) => {
   // console.log(userId);
@@ -26,7 +28,7 @@ const MyCollection = ({ userToken, userId }) => {
   }, [userId]);
 
   return isLoading ? (
-    <div className="loading ... ">🤖 in a few seconds... 🤩</div>
+    <Loader />
   ) : (
     <div className="main-container">
       <h1>My Collection</h1>
