@@ -1,5 +1,4 @@
 import "./MyCollection.css";
-
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
