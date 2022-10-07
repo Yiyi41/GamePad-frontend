@@ -1,0 +1,19 @@
+.loader-container {
+  position: absulute;
+  /* background: whitesmoke; */
+  height: 100vw;
+  width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease-in-out;
+}
+
+.dot {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #eb555b;
+  margin: 0 auto;
+  animation: loader infinite 0.3s alternate;
+}

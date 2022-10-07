@@ -1,4 +1,5 @@
 import "./GameList.css";
+import Loader from "../../components/Loader/Loader";
 import logo from "../../assets/img/logo.png";
 import Gamepad from "../../assets/img/Gamepad.png";
 
@@ -67,7 +68,7 @@ const GameList = () => {
   }, [page, search, genres, platforms]);
 
   return isLoading ? (
-    <div className="loading"> 🤖 in a few seconds... 🤩 </div>
+    <Loader />
   ) : (
     <div>
       {/* SEARCH CONTAINER */}
