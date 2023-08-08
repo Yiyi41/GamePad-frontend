@@ -9,6 +9,7 @@ This app is an online videogames catalogue. User can search a game with the name
 ###### 👉 [Backend repo](https://github.com/Yiyi41/GamePad-backend)
 
 
+
 A small quick gif: 
 <p align="center" >
 <img align="center" width="900" src="https://res.cloudinary.com/dps4zteie/image/upload/v1654034764/ezgif.com-gif-maker_2_xi6t94.gif"/>
