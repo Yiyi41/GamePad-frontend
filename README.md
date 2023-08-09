@@ -5,7 +5,7 @@ This app is an online videogames catalogue. User can search a game with the name
 *<h5 align="right">Functionalities ▶︎▶︎ Signin | Signup | Favoris | Review</h5>*
 *<h5 align="right">Stacks ▶︎▶︎ React | Express | Nodejs | mongoDB | Heroku | Netlify  </h5>*
 
-###### 👉 [Frontend repo](https://github.com/Yiyi41/GamePad-frontend)
+
 ###### 👉 [Backend repo](https://github.com/Yiyi41/GamePad-backend)
 
 
