@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
 }
 
 .instruction-container div {
@@ -20,10 +19,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  grid-gap: 10px;
   gap: 10px;
   padding: 30px;
   height: 500px;
+  width: 280px;
   align-items: center;
   justify-content: center;
 }
@@ -55,34 +54,77 @@
   font-size: 20px;
 }
 
-.form-container input {
-  width: 250px;
+.userName,
+.email,
+.submitBtn,
+.passwordInputContainer,
+.fileInputContainer {
+  width: 270px;
+}
+
+.userName,
+.email,
+.psw,
+.pswConfirm,
+.submitBtn {
   height: 35px;
   border-radius: 5px;
   border: none;
+  padding: 8px;
+  font-size: 14px;
 }
 
-/* PASSWORD BTN */
+/* PASSWORD INPUTS */
 
-.password-btn {
-  width: 250px;
+.passwordInputContainer {
   display: flex;
+  justify-content: space-between;
 }
 
-.password-btn input {
-  width: 120px;
-  width: 120px;
-  margin-right: 10px;
+.psw,
+.pswConfirm {
+  width: 125px;
 }
 
-.valid-input {
+.submitBtn {
   background-color: #eb555b;
-  width: 100px;
+}
+
+/* input file style */
+.fileInputContainer {
+  width: 50%;
+  height: 35px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #eb555b;
+  border-radius: 5px;
+}
+
+.fileInputContainer .browse {
+  color: black;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.fileInputContainer .fileName {
+  color: white;
+  margin-left: 15px;
+}
+
+.fileInput {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  left: -6px;
 }
 
 .alert {
   color: #eb555b;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .account-already {

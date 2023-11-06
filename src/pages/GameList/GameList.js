@@ -23,7 +23,7 @@ let gameTypes = [
   "Indie",
   "Simulation",
   "Racing",
-  "Strategy",
+  "Strategy"
 ];
 
 let PlatformsTab = [
@@ -33,7 +33,7 @@ let PlatformsTab = [
   "Android",
   "MacOS",
   "Nintendo Switch",
-  "Playstation 5",
+  "Playstation 5"
 ];
 
 const GameList = () => {
@@ -57,7 +57,6 @@ const GameList = () => {
           `https://my-gamepad-backend-projet.herokuapp.com/?page=${page}&search=${search}&genres=${genre}&platforms=${platforms}`
         );
 
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -91,17 +90,19 @@ const GameList = () => {
 
       {/* COMBO CONTAINER */}
       <div className="combo-container">
-        <p>Filtre:</p>
+        <p>Filtre :</p>
         <div className="type">
           <ComboBox
             popoverClassName="combo-box-popover"
             inputStyles={{
               borderRadius: "10px",
               backgroundColor: "white",
-              textAlign: "start",
-              cursor: "pointer",
+              textAlign: "center"
             }}
-            style={{ width: "90px", height: "30px" }}
+            style={{
+              width: "90px",
+              height: "30px"
+            }}
             options={gameTypes}
             enableAutocomplete
             placeholder="Type"
@@ -116,9 +117,9 @@ const GameList = () => {
               borderRadius: "10px",
               backgroundColor: "white",
               textAlign: "center",
-              cursor: "pointer",
+              cursor: "pointer"
             }}
-            style={{ width: "100px", height: "30px" }}
+            style={{ width: "90px", height: "30px" }}
             options={PlatformsTab}
             enableAutocomplete
             placeholder="Platform"

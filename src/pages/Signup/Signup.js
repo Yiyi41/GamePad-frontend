@@ -1,7 +1,7 @@
 import "./Signup.css";
 import logo from "../../assets/img/logo.png";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,13 +12,13 @@ const Signup = ({ setUserData }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [picture, setPicture] = useState(""); // /src/assets/img/logo.png");
-  const [alert, setAlert] = useState("😎 Welcome!");
+  const [alert, setAlert] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("handle submit");
+    // console.log("handle submit");
     // console.log(username, email, password);
     if (!username || !email) {
       setAlert("username et email sont obligatoires!");
@@ -39,8 +39,8 @@ const Signup = ({ setUserData }) => {
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            "Content-Type": "multipart/form-data"
+          }
         }
       );
 
@@ -53,10 +53,15 @@ const Signup = ({ setUserData }) => {
     }
   };
 
+  useEffect(() => {
+    console.log("toto");
+    console.log(picture.name);
+  }, [picture]);
+
   return (
     <div className="content-container">
       <Link to="/">
-        <img src={logo} alt="" className="img-logo" />
+        <img src={logo} alt="logo" className="img-logo" />
       </Link>
 
       <div className="instruction-container">
@@ -78,61 +83,67 @@ const Signup = ({ setUserData }) => {
           <p>Leave a review for a game</p>
         </div>
       </div>
-      <div>
-        <form className="form-container" onSubmit={handleSubmit}>
-          <p className="form-title">Signup</p>
-          <input
-            type="text"
-            placeholder="username"
-            value={username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="email"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value.toLowerCase());
-            }}
-          />
-          <div className="password-btn">
-            <input
-              type="password"
-              placeholder="password"
-              value={password}
-              onChange={(event) => {
-                setPassword(event.target.value.toLowerCase());
-              }}
-            />
-            <input
-              type="text"
-              placeholder="confirmPassword"
-              value={confirmPassword}
-              onChange={(event) => {
-                setConfirmPassword(event.target.value.toLowerCase());
-              }}
-            />
-          </div>
 
+      <form className="form-container" onSubmit={handleSubmit}>
+        <p className="form-title">Signup</p>
+        <input
+          className="userName"
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(event) => {
+            setUsername(event.target.value);
+          }}
+        />
+        <input
+          className="email"
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value.toLowerCase());
+          }}
+        />
+        <div className="passwordInputContainer">
           <input
+            className="psw"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value.toLowerCase());
+            }}
+          />
+          <input
+            className="pswConfirm"
+            type="password"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={(event) => {
+              setConfirmPassword(event.target.value.toLowerCase());
+            }}
+          />
+        </div>
+
+        <div className="fileInputContainer">
+          <span className="browse">Import profil image</span>
+          <input
+            className="fileInput"
             type="file"
+            accept="image/png, image/jpeg"
             onChange={(event) => {
               setPicture(event.target.files[0]);
             }}
           />
-          <p className="alert">{alert}</p>
-          <input
-            type="submit"
-            className="valid-input"
-            value="Creat my account"
-          />
-          <Link to="/login" className="account-already">
-            Already have an account?
-          </Link>
-        </form>
-      </div>
+          {picture.name && <span className="fileName">{picture.name}</span>}
+        </div>
+
+        <span className="alert">{alert}</span>
+        <input type="submit" className="submitBtn" value="Creat my account" />
+        <Link to="/login" className="account-already">
+          Already have an account?
+        </Link>
+      </form>
     </div>
   );
 };
