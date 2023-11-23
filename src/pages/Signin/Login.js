@@ -1,9 +1,11 @@
-import "../Signup/Signup.css";
-import logo from "../../assets/img/logo.png";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import "./Login.css";
+import logo from "../../assets/img/logo.png";
+
+import FormInstructions from "../../components/FormInstructions/FormInstructions";
 
 const Login = ({ setUserData }) => {
   const [email, setEmail] = useState("");
@@ -18,7 +20,7 @@ const Login = ({ setUserData }) => {
         "https://my-gamepad-backend-projet.herokuapp.com/login",
         {
           email: email,
-          password: password,
+          password: password
         }
       );
       console.log(response);
@@ -34,50 +36,35 @@ const Login = ({ setUserData }) => {
   };
 
   return (
-    <div className="content-container">
+    <div className="container">
       <Link to="/">
-        <img src={logo} alt="" className="img-logo" />
+        <img src={logo} alt="logo" className="img-logo" />
       </Link>
+      <FormInstructions />
 
-      <div className="instruction-container">
-        <h3>How it works?</h3>
-        <div>
-          <FontAwesomeIcon icon="user" />
-          <p>
-            Login to your free account to be <br />
-            able to get all features of Gamepad
-          </p>
-        </div>
-        <div>
-          <FontAwesomeIcon icon="bookmark" />
-          <p>Add a game to your collection</p>
-        </div>
-        <div>
-          <FontAwesomeIcon icon="message" />
-          <p>Leave a review for a game</p>
-        </div>
-      </div>
+      <form className="form" onSubmit={handleSubmit}>
+        <p className="title">Login</p>
 
-      <form className="form-container" onSubmit={handleSubmit}>
-        <p className="form-title">Login</p>
         <input
+          className="emailInput"
           type="text"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={(event) => {
             setEmail(event.target.value.toLowerCase());
           }}
         />
         <input
+          className="passwordInput"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={(event) => {
             setPassword(event.target.value.toLowerCase());
           }}
         />
-        <input type="submit" value="Login" className="valid-input" />
-        <Link to="/signup" className="account-already">
+        <input type="submit" value="Login" className="loginBtn" />
+        <Link to="/signup" className="linkToSignup">
           Don't have an account yet?
         </Link>
       </form>

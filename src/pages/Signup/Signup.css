@@ -1,6 +1,6 @@
 .content-container {
   max-width: 100%;
-  background-color: #202020;
+  background-color: #2e2c2c;
   position: relative;
   margin: 100px auto;
   border-radius: 10px;
@@ -9,22 +9,16 @@
   justify-content: center;
 }
 
-.instruction-container div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .form-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
-  padding: 30px;
+  gap: 15px;
   height: 500px;
-  width: 280px;
+  width: 330px;
   align-items: center;
   justify-content: center;
+  padding-left: 50px;
 }
 
 .img-logo {
@@ -35,20 +29,6 @@
   left: 20px;
 }
 
-.instruction-container {
-  height: 500px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.steps {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .form-title {
   color: white;
   font-size: 20px;
@@ -56,10 +36,9 @@
 
 .userName,
 .email,
-.submitBtn,
 .passwordInputContainer,
 .fileInputContainer {
-  width: 270px;
+  width: 100%;
 }
 
 .userName,
@@ -83,20 +62,28 @@
 
 .psw,
 .pswConfirm {
-  width: 125px;
+  width: 130px;
 }
 
 .submitBtn {
   background-color: #eb555b;
+  width: 30%;
 }
 
 /* input file style */
+.fileContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+}
 .fileInputContainer {
-  width: 50%;
+  width: 130px;
   height: 35px;
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   background-color: #eb555b;
   border-radius: 5px;
@@ -106,20 +93,27 @@
   color: black;
   padding: 8px;
   font-size: 14px;
+  cursor: pointer !important;
 }
 
-.fileInputContainer .fileName {
+.fileName {
   color: white;
-  margin-left: 15px;
+  font-size: 13px;
 }
 
 .fileInput {
   opacity: 0;
   cursor: pointer;
   position: absolute;
-  width: 100%;
   z-index: 1;
-  left: -6px;
+  left: 6%;
+}
+
+.noteInputFile {
+  color: white;
+  font-size: 11px;
+  width: 100%;
+  text-align: left;
 }
 
 .alert {
@@ -129,6 +123,7 @@
 
 .account-already {
   color: white;
+  font-size: 12px;
 }
 
 /* RESPONSIVE */
@@ -151,15 +146,16 @@
     padding: 30px;
     height: 450px;
   }
-
-  .instruction-container {
-    height: 300px;
-  }
 }
 
 /* CONTENT CONTAINER -- PARENT DIV */
 @media (min-width: 769px) and (max-width: 2200px) {
-  .form-container {
+  /* .form-container::before {
+    content: "";
+    height: 100%;
+    width: 100%;
     border-left: #eb555b 2px solid;
-  }
+    position: absolute;
+    padding-right: 50px;
+  } */
 }

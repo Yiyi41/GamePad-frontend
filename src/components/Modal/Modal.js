@@ -3,14 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useState } from "react";
 
-const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
+const Modal = ({ userToken, gameId, gameTitle, setOpenModal, modalOpen }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(gameTitle);
     try {
       const response = await axios.post(
         "https://my-gamepad-backend-projet.herokuapp.com/review",
@@ -18,7 +17,7 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
           title: title,
           content: content,
           gameId: gameId,
-          gameTitle: gameTitle,
+          gameTitle: gameTitle
         },
         { headers: { authorization: "Bearer " + userToken } }
       );
@@ -31,7 +30,8 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
     }
   };
   return (
-    <div className="modalBackground">
+    // <div className="modalBackground">
+    <div className={`modalBackground ${modalOpen ? "active" : ""}`}>
       <div className="modalContainer">
         <button
           className="close"
@@ -45,7 +45,7 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
           <h3>Write a Review</h3>
         </div>
         <form onSubmit={handleSubmit} className="modalForm">
-          <p>Review title</p>
+          <label>Review title</label>
           <input
             type="text"
             value={title}
@@ -53,7 +53,7 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
               setTitle(event.target.value);
             }}
           />
-          <p>Review text</p>
+          <label>Review text</label>
           <textarea
             type="text"
             value={content}
@@ -61,7 +61,7 @@ const Modal = ({ userId, userToken, gameId, gameTitle, setOpenModal }) => {
               setContent(event.target.value);
             }}
           />
-          <input type="submit" value="Publish" />
+          <input type="submit" value="Publish" className="validateBtn" />
         </form>
       </div>
     </div>

@@ -1,3 +1,7 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./GameList.css";
 import Loader from "../../components/Loader/Loader";
 import logo from "../../assets/img/logo.png";
@@ -7,11 +11,6 @@ import ComboBox from "react-responsive-combo-box"; //this package can be used ju
 import "react-responsive-combo-box/dist/index.css";
 
 import ReactPaginate from "react-paginate"; // package for pagination
-
-import { Link } from "react-router-dom";
-
-import axios from "axios";
-import { useEffect, useState } from "react";
 
 let gameTypes = [
   "All",
@@ -90,12 +89,12 @@ const GameList = () => {
 
       {/* COMBO CONTAINER */}
       <div className="combo-container">
-        <p>Filtre :</p>
+        <p>Filtred by</p>
         <div className="type">
           <ComboBox
             popoverClassName="combo-box-popover"
             inputStyles={{
-              borderRadius: "10px",
+              borderRadius: "25px",
               backgroundColor: "white",
               textAlign: "center"
             }}
@@ -114,7 +113,7 @@ const GameList = () => {
           <ComboBox
             popoverClassName="combo-box-popover"
             inputStyles={{
-              borderRadius: "10px",
+              borderRadius: "25px",
               backgroundColor: "white",
               textAlign: "center",
               cursor: "pointer"
@@ -145,9 +144,9 @@ const GameList = () => {
               <Link to={`/gamedetails/${game.id}`} key={game.id}>
                 <div className="gameCard">
                   {game.background_image ? (
-                    <img src={game.background_image} alt="" />
+                    <img src={game.background_image} alt="game cover" />
                   ) : null}
-                  <div className="gameName">{game.name}</div>
+                  <span className="gameName">{game.name}</span>
                 </div>
               </Link>
             );

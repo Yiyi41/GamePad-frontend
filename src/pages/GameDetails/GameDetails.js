@@ -37,7 +37,7 @@ const GameDetails = ({ setUserData, userId }) => {
           "https://my-gamepad-backend-projet.herokuapp.com/isfavorite",
           {
             gameId: id,
-            userId: userId,
+            userId: userId
           }
         );
         // console.log(responseIsFavorite.data);
@@ -59,18 +59,16 @@ const GameDetails = ({ setUserData, userId }) => {
         {
           gameTitle: game.name,
           gameId: game.id,
-          gameImage: game.background_image,
+          gameImage: game.background_image
         },
         { headers: { authorization: `Bearer ${Cookies.get("userToken")}` } }
       );
-      // console.log(response.data);
       if (response.data) {
         setFavorite(true);
       }
     } catch (error) {
       console.log(error.response.status);
       if (error.response.status === 401) {
-        // alert("please login:)");
         setLoginNeeded(true);
         navigate("/login");
       }
@@ -85,11 +83,10 @@ const GameDetails = ({ setUserData, userId }) => {
           "https://my-gamepad-backend-projet.herokuapp.com/removefavorite",
           {
             gameId: game.id,
-            userId: userId,
+            userId: userId
           }
         );
 
-        // console.log(response.data);
         if (response.data) {
           setFavorite(false);
         }
@@ -113,6 +110,7 @@ const GameDetails = ({ setUserData, userId }) => {
       {/* REVIEW MODAL */}
       {modalOpen && (
         <Modal
+          modalOpen={modalOpen}
           setOpenModal={setModalOpen}
           userToken={Cookies.get("userToken")}
           userId={userId}
@@ -135,13 +133,13 @@ const GameDetails = ({ setUserData, userId }) => {
                 <FontAwesomeIcon icon="bookmark" className="saved" />
               </button>
             ) : (
-              <button onClick={handleAdd}>
+              <button onClick={handleAdd} className="saveToCollection">
                 Save to <span className="save">Collection</span> &nbsp;
                 <FontAwesomeIcon icon="bookmark" />
               </button>
             )}
 
-            <button onClick={handleReview}>
+            <button onClick={handleReview} className="addReview">
               Add a Review &nbsp;
               <FontAwesomeIcon icon="message" />
             </button>

@@ -1,24 +1,14 @@
-@media (min-width: 300px) and (max-width: 767px) {
-  .favoriteContent {
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 2200px) {
-  .favoriteContent {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    height: 700px;
-  }
-}
-
 h1 {
   color: white;
   text-align: center;
 }
+
+.favoriteContent {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
 .favoriteGameCard {
   width: 250px;
   height: 300px;
@@ -26,6 +16,13 @@ h1 {
   flex-direction: column;
   align-items: center;
   position: relative;
+}
+
+.favoriteGameCard:hover {
+  border: #eb555b 2px solid;
+  border-radius: 10px;
+  margin-top: -10px;
+  transition: border, border-radius, margin-top 300ms ease-in-out;
 }
 
 .favoriteGameCard img {
@@ -43,7 +40,31 @@ h1 {
   color: #eb555b;
 }
 .favoriteGameTitle {
-  color: white;
-  position: absolute;
-  top: 230px;
+  font-size: 13px;
+  color: #eb555b;
+}
+
+@media (max-width: 767px) {
+  .favoriteContent {
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+
+  .favoriteGameCard {
+    width: 172px;
+    height: 240px;
+  }
+
+  .favoriteGameTitle {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 2200px) {
+  .favoriteContent {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 700px;
+  }
 }

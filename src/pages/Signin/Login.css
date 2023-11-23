@@ -1,0 +1,95 @@
+.container {
+  max-width: 100%;
+  background-color: #2e2c2c;
+  position: relative;
+  margin: 100px auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  height: 500px;
+  width: 270px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-left: 50px;
+}
+
+.img-logo {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+}
+
+.emailInput,
+.passwordInput,
+.loginBtn {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.loginBtn {
+  background-color: #eb555b;
+  width: 30%;
+}
+
+.alert {
+  color: #eb555b;
+  font-size: 16px;
+}
+
+.linkToSignup {
+  color: white;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 300px) and (max-width: 768px) {
+  .container {
+    background-color: #202020;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: #eb555b 2px solid;
+    padding: 30px;
+    height: 450px;
+  }
+}
+
+/* CONTENT CONTAINER -- PARENT DIV */
+/* @media (min-width: 769px) and (max-width: 2200px) {
+  .form::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-left: #eb555b 2px solid;
+    position: absolute;
+    padding-right: 50px;
+  }
+} */

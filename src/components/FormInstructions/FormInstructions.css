@@ -1,0 +1,29 @@
+.instruction-container div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instruction-container {
+  height: 500px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 50px;
+}
+.instruction {
+  font-size: 12px;
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+  .instruction-container {
+    height: 300px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 2200px) {
+  .instruction-container {
+    border-right: #eb555b 2px solid;
+  }
+}

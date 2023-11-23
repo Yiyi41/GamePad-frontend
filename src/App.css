@@ -1,8 +1,9 @@
 /* Other rules */
 body {
-  background-color: black;
+  background-color: #121212;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: "Poppins", sans-serif;
 }
 
 * {

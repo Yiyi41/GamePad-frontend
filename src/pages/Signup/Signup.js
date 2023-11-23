@@ -1,37 +1,35 @@
 import "./Signup.css";
 import logo from "../../assets/img/logo.png";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FormInstructions from "../../components/FormInstructions/FormInstructions";
 
 const Signup = ({ setUserData }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [picture, setPicture] = useState(""); // /src/assets/img/logo.png");
+  const [picture, setPicture] = useState("");
   const [alert, setAlert] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log("handle submit");
-    // console.log(username, email, password);
+
     if (!username || !email) {
       setAlert("username et email sont obligatoires!");
     } else if (password !== confirmPassword) {
       setAlert("password et confirmPass doivent être identiques!");
     }
-    console.log("picture path: " + picture);
+    // console.log("picture path: " + picture);
     const formData = new FormData();
     formData.append("username", username);
     formData.append("email", email);
     formData.append("password", password);
     formData.append("picture", picture);
-    // console.log(formData);
 
     try {
       const response = await axios.post(
@@ -53,36 +51,13 @@ const Signup = ({ setUserData }) => {
     }
   };
 
-  useEffect(() => {
-    console.log("toto");
-    console.log(picture.name);
-  }, [picture]);
-
   return (
     <div className="content-container">
       <Link to="/">
         <img src={logo} alt="logo" className="img-logo" />
       </Link>
 
-      <div className="instruction-container">
-        <h3>How it works?</h3>
-
-        <div>
-          <FontAwesomeIcon icon="user" />
-          <p>
-            Login to your free account to be
-            <br /> able to get all features of Gamepad
-          </p>
-        </div>
-        <div>
-          <FontAwesomeIcon icon="bookmark" />
-          <p>Add a game to your collection</p>
-        </div>
-        <div>
-          <FontAwesomeIcon icon="message" />
-          <p>Leave a review for a game</p>
-        </div>
-      </div>
+      <FormInstructions />
 
       <form className="form-container" onSubmit={handleSubmit}>
         <p className="form-title">Signup</p>
@@ -124,22 +99,30 @@ const Signup = ({ setUserData }) => {
             }}
           />
         </div>
-
-        <div className="fileInputContainer">
-          <span className="browse">Import profil image</span>
-          <input
-            className="fileInput"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={(event) => {
-              setPicture(event.target.files[0]);
-            }}
-          />
-          {picture.name && <span className="fileName">{picture.name}</span>}
+        <span className="noteInputFile">
+          * You can upload an image for your profil
+        </span>
+        <div className="fileContainer">
+          <div className="fileInputContainer">
+            <span className="browse">Browse files</span>
+            <input
+              className="fileInput"
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={(event) => {
+                setPicture(event.target.files[0]);
+              }}
+            />
+          </div>
+          {picture.name ? (
+            <span className="fileName">{picture.name}</span>
+          ) : (
+            <span className="fileName">No file selected</span>
+          )}
         </div>
 
         <span className="alert">{alert}</span>
-        <input type="submit" className="submitBtn" value="Creat my account" />
+        <input type="submit" className="submitBtn" value="Create" />
         <Link to="/login" className="account-already">
           Already have an account?
         </Link>

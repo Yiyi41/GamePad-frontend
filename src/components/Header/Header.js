@@ -4,7 +4,6 @@ import Gamepad from "../../assets/img/Gamepad.png";
 import Cookies from "js-cookie";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const Header = ({ setUserData, userToken }) => {
   const navigate = useNavigate();
@@ -16,19 +15,18 @@ const Header = ({ setUserData, userToken }) => {
         <img src={Gamepad} alt="" className="gamepad_img" />
       </Link>
       <div className="ongletBtn">
-        <div>
-          <button
-            className="myCollection-btn"
-            onClick={() => {
-              userToken ? navigate("/mycollection") : navigate("/login");
-            }}
-          >
-            My Collection
-          </button>
-        </div>
+        <button
+          className="myCollection-btn"
+          onClick={() => {
+            userToken ? navigate("/mycollection") : navigate("/login");
+          }}
+        >
+          My Collection
+        </button>
 
         {userToken ? (
           <button
+            className="logout-btn"
             onClick={() => {
               setUserData(null);
               Cookies.remove("userToken");
@@ -39,14 +37,9 @@ const Header = ({ setUserData, userToken }) => {
             Logout
           </button>
         ) : (
-          <div className="register-btn">
-            {/* <Link to="/signup">
-              <button>Sign up</button>
-            </Link> */}
-            <Link to="/login">
-              <button className="login-btn">Login</button>
-            </Link>
-          </div>
+          <Link to="/login">
+            <button className="login-btn">Login</button>
+          </Link>
         )}
       </div>
     </div>
