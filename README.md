@@ -1,3 +1,5 @@
+*<h1>Gamepad</h1>*
+
 ### [Visit the app 👀](https://my-projet-gamepad.netlify.app/)
 
 ### 👉 go to [Backend repo](https://github.com/Yiyi41/GamePad-backend)
