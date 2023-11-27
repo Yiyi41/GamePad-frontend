@@ -13,8 +13,8 @@
 
 
 
-<p align="center" >
-<img align="center" width="900" src="https://res.cloudinary.com/dps4zteie/image/upload/v1701079545/Capture_d_e%CC%81cran_2023-11-27_a%CC%80_11.03.21_l97fvh.png"/>
+<p align="left" >
+<img align="left" width="1000" src="https://res.cloudinary.com/dps4zteie/image/upload/v1701079545/Capture_d_e%CC%81cran_2023-11-27_a%CC%80_11.03.21_l97fvh.png"/>
 </p>     
    
 
