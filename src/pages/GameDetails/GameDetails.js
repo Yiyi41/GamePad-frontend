@@ -28,11 +28,11 @@ const GameDetails = ({ setUserData, userId }) => {
         const response = await axios.get(
           `https://my-gamepad-backend-projet.herokuapp.com/gamedetails/${id}`
         );
-        // console.log(response.data);
+
         setGame(response.data);
         setIsLoading(false);
 
-        // //  CHECK IF THE GAME IS IN FAVORIT
+        // CHECK IF THE GAME IS IN FAVORIT
         const responseIsFavorite = await axios.post(
           "https://my-gamepad-backend-projet.herokuapp.com/isfavorite",
           {
@@ -40,7 +40,7 @@ const GameDetails = ({ setUserData, userId }) => {
             userId: userId
           }
         );
-        // console.log(responseIsFavorite.data);
+   
         setFavorite(responseIsFavorite.data);
       } catch (error) {
         console.log(error.response.message);
